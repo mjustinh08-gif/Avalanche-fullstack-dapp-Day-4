@@ -1,10 +1,10 @@
 {
-  "name": "backend",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "name": "justin-blockchain-backend",
+  "version": "1.0.0",
+  "description": "Tugas Day 4 - Integrasi NestJS dengan Smart Contract Avalanche Fuji",
+  "author": "Justin",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -27,7 +27,8 @@
     "@nestjs/swagger": "^11.2.5",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
-    "viem": "^2.44.2"
+    "viem": "^2.44.2",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -53,22 +54,5 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "rootDir": "src",
-    "testRegex": ".*\\.spec\\.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "collectCoverageFrom": [
-      "**/*.(t|j)s"
-    ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
   }
 }

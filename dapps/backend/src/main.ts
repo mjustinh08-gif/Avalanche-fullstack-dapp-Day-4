@@ -5,20 +5,22 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // WAJIB: Biar Frontend bisa akses API ini
+  app.enableCors();
+
   const config = new DocumentBuilder()
-    .setTitle('Simple Storage dApp API')
-    .setDescription('The Simple Storage dApp API description')
-    .setVersion('1.0')
-    .addTag('simple-storage')
+    .setTitle('Block Explorer Mini - Justin')
+    .setDescription('Backend API untuk dApp Avalanche')
+    .setVersion('2.0')
+    .addTag('Blockchain')
     .build();
 
-  const documentFactory = () => SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('documentation', app, documentFactory);
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('documentation', app, document);
 
-  await app.listen(process.env.PORT ?? 3000);
+  // WAJIB: Biar bisa jalan di Cloud (Railway)
+  const port = process.env.PORT || 3001;
+  await app.listen(port, '0.0.0.0'); 
+  console.log(`🚀 Server running on port ${port}`);
 }
-
-bootstrap().catch((error) => {
-  console.error('Error during application bootstrap:', error);
-  process.exit(1);
-});
+bootstrap();
